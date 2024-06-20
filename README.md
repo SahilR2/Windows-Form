@@ -13,7 +13,7 @@ This project is a Windows Desktop Application built using Visual Studio with the
 ### CreateSubmissionsForm.vb:
  Form to create new submissions, including fields for Name, Email, Phone Number, GitHub link, and a stopwatch.
 ### ViewSubmissionsForm.vb: 
- Form to view submissions and navigate through them.
+ Form to view submissions, delete submissions and navigate through them.
 ### ApiClient.vb:
  Contains methods to interact with the API to fetch and submit submission data.
 ### Submission.vb: 
