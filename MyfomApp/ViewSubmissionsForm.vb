@@ -48,6 +48,36 @@ Public Class ViewSubmissionsForm
             MessageBox.Show("Submission not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
+
+    Private Async Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+            Dim index As Integer = currentIndex
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this submission?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If result <> DialogResult.Yes Then
+                Return
+            End If
+
+            Dim deleteResponse As String = Await ApiClient.DeleteSubmissionAsync(index)
+
+            ' Check if the response is "True" indicating success
+            If deleteResponse = "True" Then
+                MessageBox.Show("Submission deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                currentIndex -= 1
+
+                ' Load the updated submission after deletion
+                LoadSubmission(currentIndex)
+            Else
+                MessageBox.Show("Failed to delete submission.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            Debug.WriteLine("An error occurred: " & ex.Message)
+            MessageBox.Show("An error occurred while processing the request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+
     Private Sub ViewSubmissionsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set the background color of the buttons
         Button1.BackColor = Color.LightGoldenrodYellow
@@ -71,6 +101,11 @@ Public Class ViewSubmissionsForm
         If e.Control AndAlso e.KeyCode = Keys.N Then
             ' Trigger the Click event of the "Next" button (btnNext)
             Button2.PerformClick()
+        End If
+
+        If e.Control AndAlso e.KeyCode = Keys.D Then
+            ' Trigger the Click event of the "Next" button (btnNext)
+            Button3.PerformClick()
         End If
     End Sub
 

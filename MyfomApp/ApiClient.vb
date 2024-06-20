@@ -48,4 +48,11 @@ Public Class ApiClient
             Return Nothing
         End If
     End Function
+
+    ' Method to delete the submission
+    Public Shared Async Function DeleteSubmissionAsync(index As Integer) As Task(Of Boolean)
+        Dim response As HttpResponseMessage = Await client.DeleteAsync($"http://localhost:3000/delete/{index}")
+        Return response.IsSuccessStatusCode
+    End Function
+
 End Class

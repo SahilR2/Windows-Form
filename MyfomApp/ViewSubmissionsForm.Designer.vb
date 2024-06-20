@@ -38,6 +38,7 @@ Partial Class ViewSubmissionsForm
         Timer1 = New Timer(components)
         Label8 = New Label()
         Label7 = New Label()
+        Button3 = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -57,7 +58,7 @@ Partial Class ViewSubmissionsForm
         Button1.FlatStyle = FlatStyle.Popup
         Button1.Location = New Point(77, 377)
         Button1.Name = "Button1"
-        Button1.Size = New Size(281, 52)
+        Button1.Size = New Size(292, 60)
         Button1.TabIndex = 4
         Button1.Text = "Previous (CTRL + P)"
         Button1.UseVisualStyleBackColor = False
@@ -68,9 +69,9 @@ Partial Class ViewSubmissionsForm
         Button2.AutoEllipsis = True
         Button2.BackColor = Color.SkyBlue
         Button2.FlatStyle = FlatStyle.Popup
-        Button2.Location = New Point(397, 377)
+        Button2.Location = New Point(375, 377)
         Button2.Name = "Button2"
-        Button2.Size = New Size(281, 52)
+        Button2.Size = New Size(303, 60)
         Button2.TabIndex = 5
         Button2.Text = "Next (CTRL + N)"
         Button2.UseVisualStyleBackColor = False
@@ -171,11 +172,23 @@ Partial Class ViewSubmissionsForm
         Label7.Text = "00:00:00"
         Label7.TextAlign = ContentAlignment.MiddleCenter
         ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.DarkSalmon
+        Button3.FlatStyle = FlatStyle.Popup
+        Button3.Location = New Point(77, 443)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(601, 29)
+        Button3.TabIndex = 16
+        Button3.Text = "Delete (CTRL+ D)"
+        Button3.UseVisualStyleBackColor = False
+        ' 
         ' ViewSubmissionsForm
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(789, 476)
+        ClientSize = New Size(789, 484)
+        Controls.Add(Button3)
         Controls.Add(Label8)
         Controls.Add(Label7)
         Controls.Add(TextBox4)
@@ -210,4 +223,5 @@ Partial Class ViewSubmissionsForm
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents Button3 As Button
 End Class
